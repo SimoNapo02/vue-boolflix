@@ -3,7 +3,7 @@
     <li v-for="film in sharedFilms.films" :key="film.id">
       <h3>{{ film.title }}</h3>
       <h4>{{ film.original_title }}</h4>
-      <flag :iso="getFlegs(film.original_language)" />
+      <flag :iso="getFlags(film.original_language)" />
       <h5>{{ film.vote_average }}</h5>
     </li>
   </ul>
@@ -20,12 +20,12 @@ export default {
     };
   },
   methods: {
-    getFlegs(language) {
+    getFlags(language) {
       return language === "en" ? "gb" : language === "ja" ? "jp" : language;
     },
   },
   created() {
-    this.getFlegs(sharedFilms.films);
+    this.getFlags(sharedFilms.films);
   },
 };
 </script>
